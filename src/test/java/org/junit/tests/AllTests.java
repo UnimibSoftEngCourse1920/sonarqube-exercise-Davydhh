@@ -2,7 +2,7 @@ package org.junit.tests;
 
 import junit.framework.JUnit4TestAdapter;
 import junit.framework.Test;
-import org.junit.AssumptionViolatedExceptionTest;
+import org.junit.AssumptionViolatedExceptionJrTest;
 import org.junit.internal.AllInternalTests;
 import org.junit.rules.AllRulesTests;
 import org.junit.runner.AllRunnerTests;
@@ -39,7 +39,7 @@ import org.junit.validator.AllValidatorTests;
         AllSamplesTests.class,
         AllValidationTests.class,
         AllValidatorTests.class,
-        AssumptionViolatedExceptionTest.class,
+        AssumptionViolatedExceptionJrTest.class,
         ObjectContractTest.class
 })
 public class AllTests {
