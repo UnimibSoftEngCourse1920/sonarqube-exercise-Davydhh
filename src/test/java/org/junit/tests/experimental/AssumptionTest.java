@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Assume;
-import org.junit.AssumptionViolatedException;
+import org.junit.AssumptionViolatedExceptionJr;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -81,8 +81,8 @@ public class AssumptionTest {
     public void assumeThatWorks() {
         try {
             assumeThat(1, is(2));
-            fail("should throw AssumptionViolatedException");
-        } catch (AssumptionViolatedException e) {
+            fail("should throw AssumptionViolatedExceptionJr");
+        } catch (AssumptionViolatedExceptionJr e) {
             // expected
         }
     }
@@ -104,8 +104,8 @@ public class AssumptionTest {
         Object[] objects = {1, 2, null};
         try {
             assumeNotNull(objects);
-            fail("should throw AssumptionViolatedException");
-        } catch (AssumptionViolatedException e) {
+            fail("should throw AssumptionViolatedExceptionJr");
+        } catch (AssumptionViolatedExceptionJr e) {
             // expected
         }
     }
@@ -114,8 +114,8 @@ public class AssumptionTest {
     public void assumeNotNullThrowsExceptionForNullArray() {
         try {
             assumeNotNull((Object[]) null);
-            fail("should throw AssumptionViolatedException");
-        } catch (AssumptionViolatedException e) {
+            fail("should throw AssumptionViolatedExceptionJr");
+        } catch (AssumptionViolatedExceptionJr e) {
             // expected
         }
     }
@@ -132,10 +132,10 @@ public class AssumptionTest {
         try {
             Object[] objects = {1, 2, null};
             assumeNotNull(objects);
-        } catch (AssumptionViolatedException e) {
+        } catch (AssumptionViolatedExceptionJr e) {
             assertThat(e.getMessage(), containsString("1, 2, null"));
         } catch (Exception e) {
-            fail("Should have thrown AssumptionViolatedException");
+            fail("Should have thrown AssumptionViolatedExceptionJr");
         }
     }
 
@@ -145,7 +145,7 @@ public class AssumptionTest {
         try {
             assumeNoException(exception);
             fail("Should have thrown exception");
-        } catch (AssumptionViolatedException e) {
+        } catch (AssumptionViolatedExceptionJr e) {
             assertThat(e.getCause(), is(exception));
         }
     }
@@ -157,8 +157,8 @@ public class AssumptionTest {
     public void assumeTrueWorks() {
         try {
             Assume.assumeTrue(false);
-            fail("should throw AssumptionViolatedException");
-        } catch (AssumptionViolatedException e) {
+            fail("should throw AssumptionViolatedExceptionJr");
+        } catch (AssumptionViolatedExceptionJr e) {
             assertEquals("got: <false>, expected: is <true>", e.getMessage());
         }
     }
@@ -167,8 +167,8 @@ public class AssumptionTest {
     public void assumeFalseWorks() {
         try {
             Assume.assumeFalse(true);
-            fail("should throw AssumptionViolatedException");
-        } catch (AssumptionViolatedException e) {
+            fail("should throw AssumptionViolatedExceptionJr");
+        } catch (AssumptionViolatedExceptionJr e) {
             assertEquals("got: <true>, expected: is <false>", e.getMessage());
         }
     }
@@ -232,7 +232,7 @@ public class AssumptionTest {
     }
 
     @Test
-    public void assumeWithExpectedExceptionShouldThrowAssumptionViolatedException() {
+    public void assumeWithExpectedExceptionShouldThrowAssumptionViolatedExceptionJr() {
         Result result = JUnitCore.runClasses(TestClassWithAssumptionFailure.class);
         assertThat(result.getAssumptionFailureCount(), is(1));
     }
@@ -295,7 +295,7 @@ public class AssumptionTest {
 
     /**
      * Helper method that runs tests on <code>clazz</code> and returns any
-     * {@link Failure} objects that were {@link AssumptionViolatedException}s.
+     * {@link Failure} objects that were {@link AssumptionViolatedExceptionJr}s.
      */
     private static List<Failure> runAndGetAssumptionFailures(Class<?> clazz) {
         final List<Failure> failures = new ArrayList<Failure>();
