@@ -61,8 +61,8 @@ public class Assume {
      * If called with an expression evaluating to {@code false}, the test will halt and be ignored.
      *
      * @param b If <code>false</code>, the method will attempt to stop the test and ignore it by
-     * throwing {@link AssumptionViolatedException}.
-     * @param message A message to pass to {@link AssumptionViolatedException}.
+     * throwing {@link AssumptionViolatedExceptionJr}.
+     * @param message A message to pass to {@link AssumptionViolatedExceptionJr}.
      */
     public static void assumeTrue(String message, boolean b) {
         if (!b) throw new AssumptionViolatedExceptionJr(message);
@@ -160,7 +160,7 @@ public class Assume {
      * concerning the assumption.
      *
      * @param e if non-null, the offending exception
-     * @param message Additional message to pass to {@link AssumptionViolatedException}.
+     * @param message Additional message to pass to {@link AssumptionViolatedExceptionJr}.
      * @see #assumeNoException(Throwable)
      */
     public static void assumeNoException(String message, Throwable e) {
